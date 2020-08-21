@@ -1,0 +1,13 @@
+.table {
+  width: 80%;
+  background-color: var(--color-red);
+}
+
+.headers {
+  background-color: var(--color-red-darker);
+}
+
+.cell,
+.headerCell {
+  padding: 10px;
+}

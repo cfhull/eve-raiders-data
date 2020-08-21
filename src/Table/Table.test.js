@@ -13,7 +13,7 @@ const mockData = [
     resources: [
       {
         type: "Base Metals",
-        richness: "Medium",
+        richness: "Rich",
       },
       {
         type: "Condensates",
@@ -21,7 +21,11 @@ const mockData = [
       },
       {
         type: "Heavy Water",
-        richness: "Rich",
+        richness: "Poor",
+      },
+      {
+        type: "Noble Metals",
+        richness: "Perfect",
       },
     ],
   },
@@ -29,6 +33,32 @@ const mockData = [
 
 test("renders Dashhboard", async () => {
   const { getAllByText } = render(<Table data={mockData} />);
-  const [planetName] = getAllByText(/Tanoo I/i);
-  expect(planetName).toBeInTheDocument();
+
+  const [name] = getAllByText("Tanoo I");
+  const [type] = getAllByText("Temperate");
+  const [system] = getAllByText("Tanoo");
+  const [constellation] = getAllByText("San Matar");
+
+  const [type1] = getAllByText("Base Metals");
+  const [type2] = getAllByText("Condensates");
+  const [type3] = getAllByText("Heavy Water");
+  const [type4] = getAllByText("Noble Metals");
+
+  const [richness1] = getAllByText("Rich");
+  const [richness2] = getAllByText("Medium");
+  const [richness3] = getAllByText("Poor");
+  const [richness4] = getAllByText("Perfect");
+
+  expect(name).toBeInTheDocument();
+  expect(type).toBeInTheDocument();
+  expect(system).toBeInTheDocument();
+  expect(constellation).toBeInTheDocument();
+  expect(type1).toBeInTheDocument();
+  expect(type2).toBeInTheDocument();
+  expect(type3).toBeInTheDocument();
+  expect(type4).toBeInTheDocument();
+  expect(richness1).toBeInTheDocument();
+  expect(richness2).toBeInTheDocument();
+  expect(richness3).toBeInTheDocument();
+  expect(richness4).toBeInTheDocument();
 });

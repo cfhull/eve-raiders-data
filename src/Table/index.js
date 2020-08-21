@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useTable, useSortBy, useFilters } from "react-table";
 import matchSorter from "match-sorter";
+import styles from "./Table.module.css";
+
+const richnessValues = {
+  Perfect: 3,
+  Medium: 2,
+  Rich: 1,
+  Poor: 0,
+};
 
 const fuzzyTextFilterFn = (rows, id, filterValue) =>
   matchSorter(rows, filterValue, { keys: [(row) => row.values[id]] });
@@ -9,7 +17,7 @@ const fuzzyTextFilterFn = (rows, id, filterValue) =>
 fuzzyTextFilterFn.autoRemove = (val) => !val;
 
 const Table = ({ data }) => {
-  const filterTypes = React.useMemo(
+  const filterTypes = useMemo(
     () => ({
       // Add a new fuzzyTextFilterFn filter type.
       fuzzyText: fuzzyTextFilterFn,
@@ -29,7 +37,20 @@ const Table = ({ data }) => {
     []
   );
 
-  const columns = React.useMemo(
+  const richnessSorter = useMemo(
+    () => (a, b) =>
+      Math.max(
+        ...a.values.resourceRichness.split(", ").map((x) => richnessValues[x])
+      ) >
+      Math.max(
+        ...b.values.resourceRichness.split(", ").map((x) => richnessValues[x])
+      )
+        ? 1
+        : -1,
+    []
+  );
+
+  const columns = useMemo(
     () => [
       {
         Header: "ID",
@@ -62,19 +83,20 @@ const Table = ({ data }) => {
         filter: "fuzzyText",
         columns: [
           {
-            id: "resource-type",
+            id: "resourceType",
             Header: "Type",
-            accessor: (row) => row.resources.map(({ type }) => type).join(" "),
-            Cell: (v) => v.value.split(" ").map((x) => <div>{x}</div>),
+            accessor: (row) => row.resources.map(({ type }) => type).join(", "),
+            Cell: (v) => v.value.split(", ").map((x) => <div>{x}</div>),
             filter: "fuzzyText",
           },
           {
-            id: "resource-richness",
+            id: "resourceRichness",
             Header: "Richness",
             accessor: (row) =>
-              row.resources.map(({ richness }) => richness).join(" "),
-            Cell: (v) => v.value.split(" ").map((x) => <div>{x}</div>),
+              row.resources.map(({ richness }) => richness).join(", "),
+            Cell: (v) => v.value.split(", ").map((x) => <div>{x}</div>),
             filter: "fuzzyText",
+            sortType: richnessSorter,
           },
         ],
       },
@@ -101,7 +123,6 @@ const Table = ({ data }) => {
 
   const defaultColumn = React.useMemo(
     () => ({
-      // Let's set up our default Filter UI
       Filter: DefaultColumnFilter,
     }),
     []
@@ -126,22 +147,21 @@ const Table = ({ data }) => {
 
   return (
     <>
-      <table {...getTableProps()}>
-        <thead>
+      <table className={styles.table} {...getTableProps()}>
+        <thead className={styles.headers}>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
                 // Add the sorting props to control sorting. For this example
                 // we can add them into the header props
-                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                <th
+                  className={styles.headerCell}
+                  {...column.getHeaderProps(column.getSortByToggleProps())}
+                >
                   {column.render("Header")}
                   <div>{column.canFilter ? column.render("Filter") : null}</div>
                   <span>
-                    {column.isSorted
-                      ? column.isSortedDesc
-                        ? " 🔽"
-                        : " 🔼"
-                      : ""}
+                    {column.isSorted ? (column.isSortedDesc ? "🔽" : "🔼") : ""}
                   </span>
                 </th>
               ))}
@@ -152,10 +172,12 @@ const Table = ({ data }) => {
           {rows.map((row, i) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()}>
+              <tr className={styles.row} {...row.getRowProps()}>
                 {row.cells.map((cell) => {
                   return (
-                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                    <td className={styles.cell} {...cell.getCellProps()}>
+                      {cell.render("Cell")}
+                    </td>
                   );
                 })}
               </tr>
