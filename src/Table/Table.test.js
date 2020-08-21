@@ -1,9 +1,7 @@
 import React from "react";
-import { rest } from "msw";
-import { setupServer } from "msw/node";
 import { render, waitForElement, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import Dashboard from "./";
+import Table from ".";
 
 const mockData = [
   {
@@ -29,22 +27,8 @@ const mockData = [
   },
 ];
 
-const server = setupServer(
-  rest.get(
-    "https://everaiders.azurewebsites.net/api/planets",
-    (req, res, ctx) => {
-      return res(ctx.json(mockData));
-    }
-  )
-);
-
-beforeAll(() => server.listen());
-afterEach(() => server.resetHandlers());
-afterAll(() => server.close());
-
-test("renders a table", async () => {
-  const { getAllByText } = render(<Dashboard />);
-  await waitForElement(() => getAllByText(/Tanoo I/i));
+test("renders Dashhboard", async () => {
+  const { getAllByText } = render(<Table data={mockData} />);
   const [planetName] = getAllByText(/Tanoo I/i);
   expect(planetName).toBeInTheDocument();
 });
