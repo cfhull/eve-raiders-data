@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/eve-raiders-data/static/css/main.cc86864d.chunk.css",
-    "main.js": "/eve-raiders-data/static/js/main.a9ec1bb5.chunk.js",
-    "main.js.map": "/eve-raiders-data/static/js/main.a9ec1bb5.chunk.js.map",
+    "main.css": "/eve-raiders-data/static/css/main.590816e2.chunk.css",
+    "main.js": "/eve-raiders-data/static/js/main.cd6fc14f.chunk.js",
+    "main.js.map": "/eve-raiders-data/static/js/main.cd6fc14f.chunk.js.map",
     "runtime-main.js": "/eve-raiders-data/static/js/runtime-main.ac04dce6.js",
     "runtime-main.js.map": "/eve-raiders-data/static/js/runtime-main.ac04dce6.js.map",
-    "static/js/2.026323e8.chunk.js": "/eve-raiders-data/static/js/2.026323e8.chunk.js",
-    "static/js/2.026323e8.chunk.js.map": "/eve-raiders-data/static/js/2.026323e8.chunk.js.map",
+    "static/js/2.70b10e1d.chunk.js": "/eve-raiders-data/static/js/2.70b10e1d.chunk.js",
+    "static/js/2.70b10e1d.chunk.js.map": "/eve-raiders-data/static/js/2.70b10e1d.chunk.js.map",
     "index.html": "/eve-raiders-data/index.html",
-    "precache-manifest.99aefed4caf09e971ad3fc1a10be5058.js": "/eve-raiders-data/precache-manifest.99aefed4caf09e971ad3fc1a10be5058.js",
+    "precache-manifest.56e6a6ce0c9f52141bb65e4078e4f9dd.js": "/eve-raiders-data/precache-manifest.56e6a6ce0c9f52141bb65e4078e4f9dd.js",
     "service-worker.js": "/eve-raiders-data/service-worker.js",
-    "static/css/main.cc86864d.chunk.css.map": "/eve-raiders-data/static/css/main.cc86864d.chunk.css.map",
-    "static/js/2.026323e8.chunk.js.LICENSE.txt": "/eve-raiders-data/static/js/2.026323e8.chunk.js.LICENSE.txt"
+    "static/css/main.590816e2.chunk.css.map": "/eve-raiders-data/static/css/main.590816e2.chunk.css.map",
+    "static/js/2.70b10e1d.chunk.js.LICENSE.txt": "/eve-raiders-data/static/js/2.70b10e1d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ac04dce6.js",
-    "static/js/2.026323e8.chunk.js",
-    "static/css/main.cc86864d.chunk.css",
-    "static/js/main.a9ec1bb5.chunk.js"
+    "static/js/2.70b10e1d.chunk.js",
+    "static/css/main.590816e2.chunk.css",
+    "static/js/main.cd6fc14f.chunk.js"
   ]
 }
