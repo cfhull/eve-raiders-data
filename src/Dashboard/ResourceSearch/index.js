@@ -20,7 +20,6 @@ const ResourceSearch = () => {
     setLoading(true);
     getResources(values)
       .then(({ data }) => {
-        setError("broke");
         setData(data);
       })
       .catch((e) => {
