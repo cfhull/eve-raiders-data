@@ -93,7 +93,7 @@ const ResourceSearch = () => {
         placeholder: "resource type",
         type: "combobox",
         items: resourceTypeOptions,
-        className: styles.resourceType,
+        className: styles.field,
       },
       {
         name: "richness",
@@ -101,7 +101,7 @@ const ResourceSearch = () => {
         placeholder: "Select a richness",
         items: richness,
         type: "select",
-        className: styles.richness,
+        className: styles.field,
       },
       {
         name: "region",
@@ -110,7 +110,7 @@ const ResourceSearch = () => {
         items: regions,
         type: "combobox",
         itemToString: (item) => item?.name ?? "",
-        className: styles.region,
+        className: styles.field,
       },
     ],
   };
