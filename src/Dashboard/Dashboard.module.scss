@@ -1,0 +1,18 @@
+.dashboard {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  padding: 40px;
+
+  .header {
+    position: sticky;
+  }
+
+  .results {
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+  }
+}

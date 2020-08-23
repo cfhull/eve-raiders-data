@@ -4,16 +4,18 @@ const baseURL = "https://everaiders.azurewebsites.net/";
 
 const instance = axios.create({
   baseURL,
-  // timeout: 1000,
-  // headers: {'X-Custom-Header': 'foobar'}
+  timeout: 30000,
 });
 
-export const getPlanetData = async () => {
-  try {
-    const { data } = await instance.get("/api/planets");
-    return { data };
-  } catch (e) {
-    console.error(e);
-    return { error: e };
-  }
-};
+export const getPlanetData = () => instance.get("/api/planets");
+
+export const getResourceTypes = () =>
+  instance.get("/api/Planets/resources/types");
+
+export const getRichnessTypes = () =>
+  instance.get("/api/Planets/resources/richnesstypes");
+
+export const getResources = ({ resourceType, richness }) =>
+  instance.get(
+    `/api/Planets/resources/${resourceType.replace(/\s+/g, "")}/${richness}`
+  );

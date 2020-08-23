@@ -1,0 +1,18 @@
+.button {
+  height: 40px;
+  outline: none;
+  background-color: var(--color-blue-lighter);
+  border: 0;
+  color: var(--color-text-white);
+  cursor: pointer;
+
+  &:hover,
+  &.hover {
+    box-shadow: var(--box-shadow-blue-hover);
+  }
+
+  &:active,
+  &.active {
+    box-shadow: var(--box-shadow-blue-active);
+  }
+}

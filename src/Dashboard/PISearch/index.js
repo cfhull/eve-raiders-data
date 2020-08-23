@@ -1,0 +1,87 @@
+import React, { useMemo } from "react";
+import FormRenderer from "../../components/FormRenderer";
+import { getResourceTypes, getRichnessTypes } from "../../api";
+import { useQuery } from "react-query";
+import styles from "./PISearch.module.scss";
+
+const PISearch = ({ onSubmit }) => {
+  const {
+    loading: resourceTypesLoading,
+    error: resourceTypesError,
+    data: resourceTypesData,
+  } = useQuery("resourceTypes", getResourceTypes);
+
+  const {
+    loading: richnessTypesLoading,
+    error: richnessTypesError,
+    data: richnessTypesData,
+  } = useQuery("richnessTypes", getRichnessTypes);
+
+  const resourceTypes = useMemo(
+    () => (resourceTypesData ? JSON.parse(resourceTypesData.data) : []),
+    [resourceTypesData]
+  );
+
+  const resourceTypesOptions = useMemo(
+    () => [
+      ...resourceTypes.map((type) => type.replace(/([A-Z])/g, " $1").trim()),
+    ],
+    [resourceTypes]
+  );
+
+  const richnessTypes = useMemo(
+    () => (richnessTypesData ? JSON.parse(richnessTypesData.data) : []),
+    [richnessTypesData]
+  );
+
+  const richnessTypesOptions = useMemo(
+    () => [
+      ...richnessTypes.map((type) => type.replace(/([A-Z])/g, " $1").trim()),
+    ],
+    [richnessTypes]
+  );
+
+  if (resourceTypesLoading || richnessTypesLoading) return "Loading...";
+
+  if (resourceTypesError || richnessTypesError)
+    return (
+      "An error has occurred: " + resourceTypesError?.message ||
+      richnessTypesError?.message
+    );
+
+  const formConfig = {
+    orientation: "horizontal",
+    fields: [
+      {
+        name: "resourceType",
+        label: "Resource Type",
+        placeholder: "resource type",
+        type: "combobox",
+        items: resourceTypesOptions,
+      },
+      {
+        name: "richness",
+        label: "Richness",
+        placeholder: "Select a richness",
+        items: richnessTypesOptions,
+        type: "select",
+      },
+      // {
+      //   name: "limit",
+      //   label: "Limit",
+      //   placeholder: "Select a limit",
+      //   items: [20, 50, 100, 200],
+      //   type: "select",
+      // },
+    ],
+  };
+
+  return (
+    <div className={styles.piSearch}>
+      <h1>Find Resources</h1>
+      <FormRenderer config={formConfig} onSubmit={onSubmit} />
+    </div>
+  );
+};
+
+export default PISearch;

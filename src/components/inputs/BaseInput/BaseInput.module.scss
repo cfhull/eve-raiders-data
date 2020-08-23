@@ -1,0 +1,26 @@
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: var(--color-darkred-lighter);
+  cursor: text;
+  padding: 5px;
+  position: relative;
+  height: 40px;
+
+  &:hover,
+  &.hover {
+    box-shadow: var(--box-shadow-red-hover);
+  }
+
+  &:active,
+  &.active {
+    box-shadow: var(--box-shadow-red-active);
+  }
+}
+
+.label {
+  cursor: inherit;
+  font-size: 10px;
+}

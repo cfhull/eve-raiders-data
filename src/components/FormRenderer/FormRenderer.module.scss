@@ -1,0 +1,18 @@
+.form {
+  &.horizontal {
+    display: flex;
+
+    .field {
+      margin: 0 10px;
+    }
+
+    .submitBtn {
+      margin-left: 10px;
+    }
+  }
+}
+
+.field {
+  margin: 10px;
+  width: 200px;
+}
