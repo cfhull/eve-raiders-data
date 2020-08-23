@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { getResources } from "../api";
-import PISearch from "./PISearch";
+import ResourceSearch from "./ResourceSearch";
 import Table from "../Table";
 import styles from "./Dashboard.module.scss";
 
@@ -36,7 +36,7 @@ const Dashboard = () => {
   return (
     <div className={styles.dashboard}>
       <header className={styles.header}>
-        <PISearch onSubmit={getData} />
+        <ResourceSearch onSubmit={getData} />
       </header>
       <div className={styles.results}>
         <Table data={data} columns={columns} />

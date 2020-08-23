@@ -2,9 +2,9 @@ import React, { useMemo } from "react";
 import FormRenderer from "../../components/FormRenderer";
 import { getResourceTypes, getRichnessTypes } from "../../api";
 import { useQuery } from "react-query";
-import styles from "./PISearch.module.scss";
+import styles from "./ResourceSearch.module.scss";
 
-const PISearch = ({ onSubmit }) => {
+const ResourceSearch = ({ onSubmit }) => {
   const {
     loading: resourceTypesLoading,
     error: resourceTypesError,
@@ -77,11 +77,11 @@ const PISearch = ({ onSubmit }) => {
   };
 
   return (
-    <div className={styles.piSearch}>
+    <div className={styles.resourceSearch}>
       <h1>Find Resources</h1>
       <FormRenderer config={formConfig} onSubmit={onSubmit} />
     </div>
   );
 };
 
-export default PISearch;
+export default ResourceSearch;
