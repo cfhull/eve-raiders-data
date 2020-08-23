@@ -130,7 +130,7 @@ const ResourceSearch = () => {
         />
       </div>
       <header className={styles.header}>
-        <h1>Find Resources</h1>
+        <h1 className={styles.title}>Find Resources</h1>
         <FormRenderer
           config={formConfig}
           onSubmit={getData}
