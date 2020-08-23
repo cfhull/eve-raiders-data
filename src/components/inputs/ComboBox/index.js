@@ -13,6 +13,7 @@ const ComboBox = ({
   placeholder,
   value,
   onChange,
+  itemToString = (item) => item,
 }) => {
   const [inputItems, setInputItems] = useState(items);
 
@@ -25,6 +26,7 @@ const ComboBox = ({
     highlightedIndex,
     getItemProps,
   } = useCombobox({
+    itemToString: (item) => (item ? itemToString(item) : ""),
     items: inputItems,
     selectedItem: value,
     onSelectedItemChange: ({ selectedItem }) => {
@@ -33,7 +35,7 @@ const ComboBox = ({
     onInputValueChange: ({ inputValue }) => {
       setInputItems(
         items.filter((item) =>
-          item.toLowerCase().startsWith(inputValue.toLowerCase())
+          itemToString(item).toLowerCase().startsWith(inputValue.toLowerCase())
         )
       );
     },
@@ -75,13 +77,13 @@ const ComboBox = ({
               className={classNames(styles.item, {
                 [styles.highlighted]: highlightedIndex === index,
               })}
-              key={`${item}${index}`}
+              key={`${itemToString(item)}${index}`}
               {...getItemProps({
-                item,
+                item: itemToString(item),
                 index,
               })}
             >
-              {item}
+              {itemToString(item)}
             </li>
           ))}
       </ul>

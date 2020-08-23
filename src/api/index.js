@@ -11,7 +11,14 @@ export const getPlanetData = () => instance.get("/api/planets");
 
 export const getFilters = () => instance.get("/api/Planets/filters");
 
-export const getResources = ({ resourceType, richness }) =>
+export const getResources = ({
+  resourceType,
+  richness,
+  region: { id, name } = {},
+}) =>
   instance.get(
-    `/api/Planets/resources/${resourceType.replace(/\s+/g, "")}/${richness}`
+    `/api/Planets/resources/${resourceType.replace(/\s+/g, "")}/${richness}`,
+    {
+      params: { regionId: id },
+    }
   );

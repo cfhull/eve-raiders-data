@@ -103,6 +103,15 @@ const ResourceSearch = () => {
         type: "select",
         className: styles.richness,
       },
+      {
+        name: "region",
+        label: "Region",
+        placeholder: "Select a region",
+        items: regions,
+        type: "combobox",
+        itemToString: (item) => item?.name ?? "",
+        className: styles.region,
+      },
     ],
   };
 

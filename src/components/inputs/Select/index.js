@@ -13,6 +13,7 @@ const Select = ({
   placeholder,
   value,
   onChange,
+  itemToString = (item) => item,
 }) => {
   const {
     isOpen,
@@ -22,6 +23,7 @@ const Select = ({
     highlightedIndex,
     getItemProps,
   } = useSelect({
+    itemToString,
     items,
     selectedItem: value,
     onSelectedItemChange: ({ selectedItem }) => {
