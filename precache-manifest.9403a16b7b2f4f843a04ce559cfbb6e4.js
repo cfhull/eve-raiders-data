@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "51c0c710651ae0c07661bef57afdd47b",
+    "revision": "0e20c29099c02835ad35bba3601f9fbe",
     "url": "/eve-raiders-data/index.html"
   },
   {
