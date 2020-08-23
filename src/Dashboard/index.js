@@ -2,9 +2,11 @@ import React, { useState, useMemo } from "react";
 import { getResources } from "../api";
 import ResourceSearch from "./ResourceSearch";
 import Table from "../components/Table";
+import NavBar from "./NavBar";
 import styles from "./Dashboard.module.scss";
 
 const Dashboard = () => {
+  const [selectedRoute, setSelectedRoute] = useState("resource-search");
   const [data, setData] = useState([]);
 
   const getData = (values) => {
@@ -41,6 +43,7 @@ const Dashboard = () => {
       <header className={styles.header}>
         <ResourceSearch onSubmit={getData} />
       </header>
+      <NavBar route={selectedRoute} setRoute={setSelectedRoute} />
     </div>
   );
 };

@@ -12,6 +12,8 @@
 }
 
 .headers {
+  font-size: 14px;
+
   .headerCell {
     position: sticky;
     top: 0;
@@ -20,9 +22,7 @@
 }
 
 .body {
-  // height: calc(100% - 40px);
-  // overflow: auto;
-  // display: block;
+  font-size: 12px;
 }
 
 .cell,

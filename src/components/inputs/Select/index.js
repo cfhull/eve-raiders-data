@@ -33,6 +33,7 @@ const Select = ({
     <div className={className}>
       <BaseInput
         className={styles.inputWrapper}
+        active={isOpen}
         label={label}
         name={name}
         {...getToggleButtonProps()}

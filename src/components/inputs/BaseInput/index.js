@@ -3,7 +3,7 @@ import classNames from "classnames";
 import styles from "./BaseInput.module.scss";
 
 const BaseInput = React.forwardRef(
-  ({ className, label, name, children, ...props }, ref) => {
+  ({ className, label, name, active, children, ...props }, ref) => {
     const [hasFocus, setHasFocus] = useState(false);
     const childRef = useRef();
 
@@ -25,7 +25,7 @@ const BaseInput = React.forwardRef(
       <div
         ref={ref}
         className={classNames(className, styles.inputWrapper, {
-          [styles.active]: hasFocus,
+          [styles.active]: hasFocus || active,
         })}
         onClick={() => {
           childRef.current.focus();

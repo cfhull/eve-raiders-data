@@ -1,3 +1,5 @@
+@import "../../../styles/mixins";
+
 .inputWrapper {
   display: flex;
   flex-direction: column;
@@ -9,15 +11,10 @@
   position: relative;
   height: 40px;
 
-  &:hover,
-  &.hover {
-    box-shadow: var(--box-shadow-red-hover);
-  }
-
-  &:active,
-  &.active {
-    box-shadow: var(--box-shadow-red-active);
-  }
+  @include box-shadow(
+    var(--box-shadow-red-hover),
+    var(--box-shadow-blue-active)
+  );
 }
 
 .label {
