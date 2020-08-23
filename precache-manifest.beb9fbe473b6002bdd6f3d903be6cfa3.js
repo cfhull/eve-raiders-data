@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7ad14fdffa510fd434c7741f942eb08a",
+    "revision": "759af71f817b8d63ac6ce8b7c559a591",
     "url": "/eve-raiders-data/index.html"
   },
   {
-    "revision": "281c4c648d64bc188bd5",
-    "url": "/eve-raiders-data/static/css/main.d1015496.chunk.css"
+    "revision": "1e511a7a2356fb012806",
+    "url": "/eve-raiders-data/static/css/main.2914d3cb.chunk.css"
   },
   {
     "revision": "47dabe483898929e6033",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/eve-raiders-data/static/js/2.8808978a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "281c4c648d64bc188bd5",
-    "url": "/eve-raiders-data/static/js/main.042aebd2.chunk.js"
+    "revision": "1e511a7a2356fb012806",
+    "url": "/eve-raiders-data/static/js/main.25b28d71.chunk.js"
   },
   {
     "revision": "c8446ea3a6d3ef04ddb4",
