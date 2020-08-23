@@ -15,13 +15,17 @@ const Table = ({ data, columns }) => {
   });
 
   return (
-    <>
+    <div className={styles.tableWrapper}>
       <table className={styles.table} {...getTableProps()}>
         <thead className={styles.headers}>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <th className={styles.headerCell} {...column.getHeaderProps()}>
+                <th
+                  className={styles.headerCell}
+                  style={column.style || {}}
+                  {...column.getHeaderProps()}
+                >
                   {column.render("Header")}
                 </th>
               ))}
@@ -35,7 +39,11 @@ const Table = ({ data, columns }) => {
               <tr className={styles.row} {...row.getRowProps()}>
                 {row.cells.map((cell) => {
                   return (
-                    <td className={styles.cell} {...cell.getCellProps()}>
+                    <td
+                      className={styles.cell}
+                      style={cell.column.style || {}}
+                      {...cell.getCellProps()}
+                    >
                       {cell.render("Cell")}
                     </td>
                   );
@@ -45,7 +53,7 @@ const Table = ({ data, columns }) => {
           })}
         </tbody>
       </table>
-    </>
+    </div>
   );
 };
 

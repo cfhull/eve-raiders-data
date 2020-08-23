@@ -1,18 +1,20 @@
 .dashboard {
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column-reverse;
   height: 100vh;
-  overflow: hidden;
-  padding: 40px;
+  width: 100vw;
 
   .header {
-    position: sticky;
+    width: 100%;
   }
 
   .results {
     height: 100%;
+    width: 100%;
+    justify-content: center;
     display: flex;
     overflow: hidden;
+    z-index: 1;
   }
 }

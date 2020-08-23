@@ -18,7 +18,7 @@ const ResourceSearch = ({ onSubmit }) => {
   } = useQuery("richnessTypes", getRichnessTypes);
 
   const resourceTypes = useMemo(
-    () => (resourceTypesData ? JSON.parse(resourceTypesData.data) : []),
+    () => (resourceTypesData ? resourceTypesData.data : []),
     [resourceTypesData]
   );
 
@@ -30,7 +30,7 @@ const ResourceSearch = ({ onSubmit }) => {
   );
 
   const richnessTypes = useMemo(
-    () => (richnessTypesData ? JSON.parse(richnessTypesData.data) : []),
+    () => (richnessTypesData ? richnessTypesData.data : []),
     [richnessTypesData]
   );
 
@@ -50,7 +50,7 @@ const ResourceSearch = ({ onSubmit }) => {
     );
 
   const formConfig = {
-    orientation: "horizontal",
+    className: styles.resourceSearchForm,
     fields: [
       {
         name: "resourceType",
@@ -58,6 +58,7 @@ const ResourceSearch = ({ onSubmit }) => {
         placeholder: "resource type",
         type: "combobox",
         items: resourceTypesOptions,
+        className: styles.resourceType,
       },
       {
         name: "richness",
@@ -65,6 +66,7 @@ const ResourceSearch = ({ onSubmit }) => {
         placeholder: "Select a richness",
         items: richnessTypesOptions,
         type: "select",
+        className: styles.richness,
       },
       // {
       //   name: "limit",

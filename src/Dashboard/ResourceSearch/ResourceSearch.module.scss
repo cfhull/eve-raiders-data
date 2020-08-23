@@ -1,8 +1,20 @@
 .resourceSearch {
-  margin-bottom: 20px;
-}
-
-.form {
   display: flex;
-  align-items: column;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: 480px) {
+    .resourceSearchForm {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .resourceType,
+    .richness {
+      margin-right: 10px;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+  }
 }

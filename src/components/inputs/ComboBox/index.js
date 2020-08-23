@@ -5,7 +5,15 @@ import classNames from "classnames";
 import styles from "./ComboBox.module.scss";
 import { MdExpandMore } from "react-icons/md";
 
-const ComboBox = ({ label, items, name, placeholder, value, onChange }) => {
+const ComboBox = ({
+  className,
+  label,
+  items,
+  name,
+  placeholder,
+  value,
+  onChange,
+}) => {
   const [inputItems, setInputItems] = useState(items);
 
   const {
@@ -36,7 +44,7 @@ const ComboBox = ({ label, items, name, placeholder, value, onChange }) => {
   }, [items]);
 
   return (
-    <div>
+    <div className={className}>
       <BaseInput label={label} name={name}>
         {(ref) => (
           <div className={styles.combobox} {...getComboboxProps()}>

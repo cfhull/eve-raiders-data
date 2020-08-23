@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
+import classNames from "classnames";
 import Button from "../inputs/Button";
 import { Formik, Form, Field } from "formik";
-import classNames from "classnames";
 import Input from "../../components/inputs/Input";
 import ComboBox from "../inputs/ComboBox";
 import Select from "../inputs/Select";
@@ -26,30 +26,28 @@ const FormRenderer = ({ config, onSubmit }) => {
   return (
     <Formik initialValues={initialValues} onSubmit={onSubmit}>
       {({ setFieldValue }) => (
-        <Form
-          className={classNames(styles.form, {
-            [styles.horizontal]: config.orientation === "horizontal",
-          })}
-        >
-          {config.fields.map(({ name, label, type, ...inputProps }) => (
-            <div className={styles.field} key={name}>
-              <Field name={name}>
-                {({ field }) => {
-                  const Component = inputTypes[type] || inputTypes["*"];
-                  return (
-                    <Component
-                      key={name}
-                      label={label}
-                      type={type}
-                      {...field}
-                      {...inputProps}
-                      onChange={(value) => setFieldValue(name, value)}
-                    />
-                  );
-                }}
-              </Field>
-            </div>
-          ))}
+        <Form className={classNames(styles.form, config.className)}>
+          {config.fields.map(
+            ({ className, name, label, type, ...inputProps }) => (
+              <div className={classNames(styles.field, className)} key={name}>
+                <Field name={name}>
+                  {({ field }) => {
+                    const Component = inputTypes[type] || inputTypes["*"];
+                    return (
+                      <Component
+                        key={name}
+                        label={label}
+                        type={type}
+                        {...field}
+                        {...inputProps}
+                        onChange={(value) => setFieldValue(name, value)}
+                      />
+                    );
+                  }}
+                </Field>
+              </div>
+            )
+          )}
           <Button className={styles.submitBtn} type="submit">
             Submit
           </Button>

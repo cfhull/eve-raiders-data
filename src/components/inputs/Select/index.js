@@ -5,7 +5,15 @@ import classNames from "classnames";
 import { MdExpandMore } from "react-icons/md";
 import styles from "./Select.module.scss";
 
-const Select = ({ label, items, name, placeholder, value, onChange }) => {
+const Select = ({
+  className,
+  label,
+  items,
+  name,
+  placeholder,
+  value,
+  onChange,
+}) => {
   const {
     isOpen,
     selectedItem,
@@ -22,7 +30,7 @@ const Select = ({ label, items, name, placeholder, value, onChange }) => {
   });
 
   return (
-    <div>
+    <div className={className}>
       <BaseInput
         className={styles.inputWrapper}
         label={label}

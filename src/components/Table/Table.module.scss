@@ -1,19 +1,28 @@
+.tableWrapper {
+  overflow: scroll;
+}
+
 .table {
-  display: block;
+  position: relative;
+  max-width: 460px;
   width: 100%;
   height: 100%;
   background-color: var(--color-darkred);
-  overflow: hidden;
+  border-collapse: collapse;
 }
 
 .headers {
-  background-color: var(--color-darkred-darker);
+  .headerCell {
+    position: sticky;
+    top: 0;
+    background-color: var(--color-darkred-darker);
+  }
 }
 
 .body {
-  height: calc(100% - 40px);
-  overflow: auto;
-  display: block;
+  // height: calc(100% - 40px);
+  // overflow: auto;
+  // display: block;
 }
 
 .cell,
