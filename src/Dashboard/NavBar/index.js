@@ -1,4 +1,5 @@
 import React from "react";
+import { GiMining } from "react-icons/gi";
 import { IoMdPlanet } from "react-icons/io";
 import NavItem from "./NavItem";
 import styles from "./NavBar.module.scss";
@@ -7,6 +8,11 @@ const navItems = [
   {
     name: "resource-search",
     label: "Resource Search",
+    logo: GiMining,
+  },
+  {
+    name: "planet-search",
+    label: "Planet Search",
     logo: IoMdPlanet,
   },
 ];

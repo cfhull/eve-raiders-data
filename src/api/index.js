@@ -9,11 +9,7 @@ const instance = axios.create({
 
 export const getPlanetData = () => instance.get("/api/planets");
 
-export const getResourceTypes = () =>
-  instance.get("/api/Planets/resources/types");
-
-export const getRichnessTypes = () =>
-  instance.get("/api/Planets/resources/richnesstypes");
+export const getFilters = () => instance.get("/api/Planets/filters");
 
 export const getResources = ({ resourceType, richness }) =>
   instance.get(

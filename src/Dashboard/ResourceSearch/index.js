@@ -1,6 +1,7 @@
-import React, { useMemo } from "react";
+import React, { useState, useMemo } from "react";
+import Table from "../../components/Table";
 import FormRenderer from "../../components/FormRenderer";
-import { getResourceTypes, getRichnessTypes } from "../../api";
+import { getFilters, getResources } from "../../api";
 import { useQuery } from "react-query";
 import * as Yup from "yup";
 import styles from "./ResourceSearch.module.scss";
@@ -10,50 +11,73 @@ const ResourceSearchSchema = Yup.object().shape({
   richness: Yup.string().required("Richness is required"),
 });
 
-const ResourceSearch = ({ onSubmit, loading }) => {
-  const {
-    loading: resourceTypesLoading,
-    error: resourceTypesError,
-    data: resourceTypesData,
-  } = useQuery("resourceTypes", getResourceTypes);
+const ResourceSearch = () => {
+  const [data, setData] = useState([]);
+  const [error, setError] = useState();
+  const [loading, setLoading] = useState(false);
 
-  const {
-    loading: richnessTypesLoading,
-    error: richnessTypesError,
-    data: richnessTypesData,
-  } = useQuery("richnessTypes", getRichnessTypes);
+  const getData = (values) => {
+    setLoading(true);
+    getResources(values)
+      .then(({ data }) => {
+        setError("broke");
+        setData(data);
+      })
+      .catch((e) => {
+        setError(e);
+      })
+      .finally(() => setLoading(false));
+  };
 
-  const resourceTypes = useMemo(
-    () => (resourceTypesData ? resourceTypesData.data : []),
-    [resourceTypesData]
-  );
-
-  const resourceTypesOptions = useMemo(
+  const columns = useMemo(
     () => [
-      ...resourceTypes.map((type) => type.replace(/([A-Z])/g, " $1").trim()),
+      {
+        Header: "Jumps",
+        accessor: "distanceFromBase",
+        style: {
+          textAlign: "right",
+        },
+      },
+      {
+        Header: "Planet Name",
+        accessor: "planetName",
+        style: {
+          textAlign: "left",
+        },
+      },
+      {
+        Header: "Resource Type",
+        accessor: "resourceType",
+        Cell: ({ value }) => value.replace(/([A-Z])/g, " $1").trim(),
+        style: {
+          textAlign: "left",
+        },
+      },
+      {
+        Header: "Richness",
+        accessor: "richness",
+        style: {
+          textAlign: "left",
+        },
+      },
     ],
-    [resourceTypes]
+    []
   );
 
-  const richnessTypes = useMemo(
-    () => (richnessTypesData ? richnessTypesData.data : []),
-    [richnessTypesData]
+  const {
+    loading: filtersLoading,
+    error: filtersError,
+    data: filtersTypesData,
+  } = useQuery("filters", getFilters);
+
+  const { regions, richness, types } = useMemo(
+    () => (filtersTypesData ? filtersTypesData.data : []),
+    [filtersTypesData]
   );
 
-  const richnessTypesOptions = useMemo(
-    () => [
-      ...richnessTypes.map((type) => type.replace(/([A-Z])/g, " $1").trim()),
-    ],
-    [richnessTypes]
-  );
+  if (filtersLoading) return "Loading...";
 
-  if (resourceTypesLoading || richnessTypesLoading) return "Loading...";
-
-  if (resourceTypesError || richnessTypesError)
-    return (
-      "An error has occurred: " + resourceTypesError?.message ||
-      richnessTypesError?.message
-    );
+  if (filtersError) return "An error has occurred: " + filtersError.message;
 
   const formConfig = {
     validation: ResourceSearchSchema,
@@ -64,31 +88,42 @@ const ResourceSearch = ({ onSubmit, loading }) => {
         label: "Resource Type",
         placeholder: "resource type",
         type: "combobox",
-        items: resourceTypesOptions,
+        items: types,
         className: styles.resourceType,
       },
       {
         name: "richness",
         label: "Richness",
         placeholder: "Select a richness",
-        items: richnessTypesOptions,
+        items: richness,
         type: "select",
         className: styles.richness,
       },
-      // {
-      //   name: "limit",
-      //   label: "Limit",
-      //   placeholder: "Select a limit",
-      //   items: [20, 50, 100, 200],
-      //   type: "select",
-      // },
     ],
   };
 
   return (
     <div className={styles.resourceSearch}>
-      <h1>Find Resources</h1>
-      <FormRenderer config={formConfig} onSubmit={onSubmit} loading={loading} />
+      <div className={styles.results}>
+        {error && (
+          <div className={styles.error}>
+            An error occured. Please try again.
+          </div>
+        )}
+        <Table
+          data={data}
+          columns={columns}
+          placeholder="No data for selected filters"
+        />
+      </div>
+      <header className={styles.header}>
+        <h1>Find Resources</h1>
+        <FormRenderer
+          config={formConfig}
+          onSubmit={getData}
+          loading={loading}
+        />
+      </header>
     </div>
   );
 };

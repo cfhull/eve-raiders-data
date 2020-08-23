@@ -8,7 +8,7 @@ import { MdExpandMore } from "react-icons/md";
 const ComboBox = ({
   className,
   label,
-  items,
+  items = [],
   name,
   placeholder,
   value,
@@ -18,9 +18,6 @@ const ComboBox = ({
 
   const {
     isOpen,
-    selectedItem,
-    setInputValue,
-    closeMenu,
     getMenuProps,
     getInputProps,
     getToggleButtonProps,
@@ -41,10 +38,6 @@ const ComboBox = ({
       );
     },
   });
-
-  useEffect(() => {
-    setInputItems(items);
-  }, [items]);
 
   return (
     <div className={className}>

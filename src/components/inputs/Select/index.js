@@ -8,7 +8,7 @@ import styles from "./Select.module.scss";
 const Select = ({
   className,
   label,
-  items,
+  items = [],
   name,
   placeholder,
   value,
