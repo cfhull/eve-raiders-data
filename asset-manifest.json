@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/eve-raiders-data/static/css/main.2c7abca6.chunk.css",
+    "main.css": "/eve-raiders-data/static/css/main.d1015496.chunk.css",
     "main.js": "/eve-raiders-data/static/js/main.e8b50daa.chunk.js",
     "main.js.map": "/eve-raiders-data/static/js/main.e8b50daa.chunk.js.map",
     "runtime-main.js": "/eve-raiders-data/static/js/runtime-main.ac04dce6.js",
@@ -8,15 +8,15 @@
     "static/js/2.da3ad480.chunk.js": "/eve-raiders-data/static/js/2.da3ad480.chunk.js",
     "static/js/2.da3ad480.chunk.js.map": "/eve-raiders-data/static/js/2.da3ad480.chunk.js.map",
     "index.html": "/eve-raiders-data/index.html",
-    "precache-manifest.abe9c409944a90b2c4096245389b0538.js": "/eve-raiders-data/precache-manifest.abe9c409944a90b2c4096245389b0538.js",
+    "precache-manifest.d80fa86298068ad695d5bff7e687877f.js": "/eve-raiders-data/precache-manifest.d80fa86298068ad695d5bff7e687877f.js",
     "service-worker.js": "/eve-raiders-data/service-worker.js",
-    "static/css/main.2c7abca6.chunk.css.map": "/eve-raiders-data/static/css/main.2c7abca6.chunk.css.map",
+    "static/css/main.d1015496.chunk.css.map": "/eve-raiders-data/static/css/main.d1015496.chunk.css.map",
     "static/js/2.da3ad480.chunk.js.LICENSE.txt": "/eve-raiders-data/static/js/2.da3ad480.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ac04dce6.js",
     "static/js/2.da3ad480.chunk.js",
-    "static/css/main.2c7abca6.chunk.css",
+    "static/css/main.d1015496.chunk.css",
     "static/js/main.e8b50daa.chunk.js"
   ]
 }
