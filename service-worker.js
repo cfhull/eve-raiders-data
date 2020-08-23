@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/eve-raiders-data/precache-manifest.360c55e4068adc8684804b166905ca05.js"
+  "/eve-raiders-data/precache-manifest.29c94b2bfc9caef0b2b13015b21d9e2a.js"
 );
 
 self.addEventListener('message', (event) => {
