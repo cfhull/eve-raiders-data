@@ -7,7 +7,22 @@ const instance = axios.create({
   timeout: 30000,
 });
 
-export const getPlanetData = () => instance.get("/api/planets");
+export const getPlanets = ({
+  region,
+  constellatin,
+  system,
+  planetName,
+  planetType,
+}) =>
+  instance.get("/api/planets", {
+    params: {
+      region: region.name,
+      constellatin,
+      system,
+      planetName,
+      planetType,
+    },
+  });
 
 export const getFilters = () => instance.get("/api/Planets/filters");
 

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import ResourceSearch from "./ResourceSearch";
+import PlanetSearch from "./PlanetSearch";
 import UnderDevelopment from "./UnderDevelopment";
 import NavBar from "./NavBar";
 import styles from "./Dashboard.module.scss";
 
 const routes = {
   "resource-search": ResourceSearch,
+  "planet-search": PlanetSearch,
   "*": UnderDevelopment,
 };
 

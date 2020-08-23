@@ -86,6 +86,8 @@ const ResourceSearch = () => {
   const formConfig = {
     validation: ResourceSearchSchema,
     className: styles.resourceSearchForm,
+    fieldsClassName: styles.fields,
+    btnClassName: styles.submitBtn,
     fields: [
       {
         name: "resourceType",

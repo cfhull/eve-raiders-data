@@ -33,32 +33,38 @@ const FormRenderer = ({ config, onSubmit, loading }) => {
     >
       {({ setFieldValue }) => (
         <Form className={classNames(styles.form, config.className)}>
-          {config.fields.map(({ className, name, type, ...inputProps }) => (
-            <div className={classNames(styles.field, className)} key={name}>
-              <Field name={name}>
-                {({ field }) => {
-                  const Component = inputTypes[type] || inputTypes["*"];
-                  return (
-                    <Component
-                      key={name}
-                      type={type}
-                      {...field}
-                      {...inputProps}
-                      onChange={(value) => setFieldValue(name, value)}
-                    />
-                  );
-                }}
-              </Field>
-              <ErrorMessage name={name}>
-                {(msg) => (
-                  <div className={styles.error}>
-                    <MdErrorOutline /> {msg}
-                  </div>
-                )}
-              </ErrorMessage>
-            </div>
-          ))}
-          <Button className={styles.submitBtn} type="submit" disabled={loading}>
+          <div className={styles.fields}>
+            {config.fields.map(({ className, name, type, ...inputProps }) => (
+              <div className={classNames(styles.field, className)} key={name}>
+                <Field name={name}>
+                  {({ field }) => {
+                    const Component = inputTypes[type] || inputTypes["*"];
+                    return (
+                      <Component
+                        key={name}
+                        type={type}
+                        {...field}
+                        {...inputProps}
+                        onChange={(value) => setFieldValue(name, value)}
+                      />
+                    );
+                  }}
+                </Field>
+                <ErrorMessage name={name}>
+                  {(msg) => (
+                    <div className={styles.error}>
+                      <MdErrorOutline /> {msg}
+                    </div>
+                  )}
+                </ErrorMessage>
+              </div>
+            ))}
+          </div>
+          <Button
+            className={classNames(styles.submitBtn, config.btnClassName)}
+            type="submit"
+            disabled={loading}
+          >
             <span style={{ visibility: loading ? "hidden" : "visible" }}>
               Search
             </span>

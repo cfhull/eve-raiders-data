@@ -1,13 +1,25 @@
 .form {
   display: flex;
+  flex-direction: column;
+  max-width: 630px;
+  margin: 0 auto;
+  align-items: center;
+
+  .fields {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 
   .submitBtn {
-    // margin: 10px 0 0 10px;
+    margin: 20px 5px 0;
+    min-width: 100px;
+    align-self: flex-end;
   }
 }
 
 .field {
-  margin-right: 10px;
+  margin: 5px;
   width: 200px;
 }
 
