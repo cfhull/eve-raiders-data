@@ -53,3 +53,10 @@ html {
   background-color: var(--color-black);
   color: var(--color-text-white);
 }
+
+::placeholder,
+::-webkit-input-placeholder,
+:-ms-input-placeholder {
+  color: #777;
+  opacity: 0.8;
+}

@@ -18,6 +18,9 @@ const ComboBox = ({
 
   const {
     isOpen,
+    selectedItem,
+    setInputValue,
+    closeMenu,
     getMenuProps,
     getInputProps,
     getToggleButtonProps,
@@ -50,13 +53,19 @@ const ComboBox = ({
           <div className={styles.combobox} {...getComboboxProps()}>
             <input
               className={styles.input}
+              spellcheck="false"
               {...getInputProps({
                 name,
                 placeholder,
                 ref,
               })}
             />
-            <div className={styles.dropdownIcon} {...getToggleButtonProps()}>
+            <div
+              className={styles.dropdownIcon}
+              {...getToggleButtonProps({
+                onClick: () => setInputItems(items),
+              })}
+            >
               <MdExpandMore size={16} />
             </div>
           </div>

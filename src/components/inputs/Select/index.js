@@ -40,7 +40,9 @@ const Select = ({
       >
         {(ref) => (
           <button ref={ref} className={styles.input} type="button">
-            {selectedItem || placeholder}
+            {selectedItem || (
+              <span className={styles.placeholder}>{placeholder}</span>
+            )}
             <MdExpandMore className={styles.dropdownIcon} size={16} />
           </button>
         )}

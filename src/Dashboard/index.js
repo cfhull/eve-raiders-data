@@ -18,18 +18,30 @@ const Dashboard = () => {
       {
         Header: "Jumps",
         accessor: "distanceFromBase",
+        style: {
+          textAlign: "right",
+        },
       },
       {
         Header: "Planet Name",
         accessor: "planetName",
+        style: {
+          textAlign: "left",
+        },
       },
       {
         Header: "Resource Type",
         accessor: "resourceType",
+        style: {
+          textAlign: "left",
+        },
       },
       {
         Header: "Richness",
         accessor: "richness",
+        style: {
+          textAlign: "left",
+        },
       },
     ],
     []

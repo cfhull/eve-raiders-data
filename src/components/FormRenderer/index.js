@@ -1,10 +1,11 @@
 import React, { useMemo } from "react";
 import classNames from "classnames";
 import Button from "../inputs/Button";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import Input from "../../components/inputs/Input";
 import ComboBox from "../inputs/ComboBox";
 import Select from "../inputs/Select";
+import { MdErrorOutline } from "react-icons/md";
 import styles from "./FormRenderer.module.scss";
 
 const inputTypes = {
@@ -24,7 +25,11 @@ const FormRenderer = ({ config, onSubmit }) => {
   );
 
   return (
-    <Formik initialValues={initialValues} onSubmit={onSubmit}>
+    <Formik
+      validationSchema={config.validation}
+      initialValues={initialValues}
+      onSubmit={onSubmit}
+    >
       {({ setFieldValue }) => (
         <Form className={classNames(styles.form, config.className)}>
           {config.fields.map(
@@ -45,6 +50,13 @@ const FormRenderer = ({ config, onSubmit }) => {
                     );
                   }}
                 </Field>
+                <ErrorMessage name={name}>
+                  {(msg) => (
+                    <div className={styles.error}>
+                      <MdErrorOutline /> {msg}
+                    </div>
+                  )}
+                </ErrorMessage>
               </div>
             )
           )}

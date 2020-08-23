@@ -2,7 +2,13 @@ import React, { useMemo } from "react";
 import FormRenderer from "../../components/FormRenderer";
 import { getResourceTypes, getRichnessTypes } from "../../api";
 import { useQuery } from "react-query";
+import * as Yup from "yup";
 import styles from "./ResourceSearch.module.scss";
+
+const ResourceSearchSchema = Yup.object().shape({
+  resourceType: Yup.string().required("Resource Type is required"),
+  richness: Yup.string().required("Richness is required"),
+});
 
 const ResourceSearch = ({ onSubmit }) => {
   const {
@@ -50,6 +56,7 @@ const ResourceSearch = ({ onSubmit }) => {
     );
 
   const formConfig = {
+    validation: ResourceSearchSchema,
     className: styles.resourceSearchForm,
     fields: [
       {

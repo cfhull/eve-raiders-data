@@ -10,3 +10,10 @@
   margin-right: 10px;
   width: 200px;
 }
+
+.error {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: var(--color-red-lighter);
+}
