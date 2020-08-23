@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useCombobox } from "downshift";
 import BaseInput from "../BaseInput";
 import classNames from "classnames";
