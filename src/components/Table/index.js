@@ -2,7 +2,7 @@ import React from "react";
 import { useTable } from "react-table";
 import styles from "./Table.module.scss";
 
-const Table = ({ data, columns }) => {
+const Table = ({ data, columns, placeholder }) => {
   const {
     getTableProps,
     getTableBodyProps,
@@ -53,6 +53,9 @@ const Table = ({ data, columns }) => {
           })}
         </tbody>
       </table>
+      {rows.length === 0 && (
+        <div className={styles.placeholder}>{placeholder}</div>
+      )}
     </div>
   );
 };

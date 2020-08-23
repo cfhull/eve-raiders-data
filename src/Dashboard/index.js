@@ -8,9 +8,14 @@ import styles from "./Dashboard.module.scss";
 const Dashboard = () => {
   const [selectedRoute, setSelectedRoute] = useState("resource-search");
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const getData = (values) => {
-    getResources(values).then(({ data }) => setData(data));
+    setLoading(true);
+    getResources(values).then(({ data }) => {
+      setData(data);
+      setLoading(false);
+    });
   };
 
   const columns = useMemo(
@@ -32,6 +37,7 @@ const Dashboard = () => {
       {
         Header: "Resource Type",
         accessor: "resourceType",
+        Cell: ({ value }) => value.replace(/([A-Z])/g, " $1").trim(),
         style: {
           textAlign: "left",
         },
@@ -50,10 +56,14 @@ const Dashboard = () => {
   return (
     <div className={styles.dashboard}>
       <div className={styles.results}>
-        <Table data={data} columns={columns} />
+        <Table
+          data={data}
+          columns={columns}
+          placeholder="No data for selected filters"
+        />
       </div>
       <header className={styles.header}>
-        <ResourceSearch onSubmit={getData} />
+        <ResourceSearch onSubmit={getData} loading={loading} />
       </header>
       <NavBar route={selectedRoute} setRoute={setSelectedRoute} />
     </div>

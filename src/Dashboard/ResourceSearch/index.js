@@ -10,7 +10,7 @@ const ResourceSearchSchema = Yup.object().shape({
   richness: Yup.string().required("Richness is required"),
 });
 
-const ResourceSearch = ({ onSubmit }) => {
+const ResourceSearch = ({ onSubmit, loading }) => {
   const {
     loading: resourceTypesLoading,
     error: resourceTypesError,
@@ -88,7 +88,7 @@ const ResourceSearch = ({ onSubmit }) => {
   return (
     <div className={styles.resourceSearch}>
       <h1>Find Resources</h1>
-      <FormRenderer config={formConfig} onSubmit={onSubmit} />
+      <FormRenderer config={formConfig} onSubmit={onSubmit} loading={loading} />
     </div>
   );
 };

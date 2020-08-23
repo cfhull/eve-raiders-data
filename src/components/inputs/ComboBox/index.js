@@ -53,7 +53,7 @@ const ComboBox = ({
           <div className={styles.combobox} {...getComboboxProps()}>
             <input
               className={styles.input}
-              spellcheck="false"
+              spellCheck="false"
               {...getInputProps({
                 name,
                 placeholder,

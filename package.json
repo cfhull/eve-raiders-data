@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://cfhull.github.io/eve-raiders-data",
   "dependencies": {
+    "@bit/davidhu2000.react-spinners.ring-loader": "^0.5.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",

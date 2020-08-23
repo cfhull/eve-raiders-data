@@ -6,6 +6,7 @@ import Input from "../../components/inputs/Input";
 import ComboBox from "../inputs/ComboBox";
 import Select from "../inputs/Select";
 import { MdErrorOutline } from "react-icons/md";
+import RingLoader from "@bit/davidhu2000.react-spinners.ring-loader";
 import styles from "./FormRenderer.module.scss";
 
 const inputTypes = {
@@ -14,7 +15,7 @@ const inputTypes = {
   "*": Input,
 };
 
-const FormRenderer = ({ config, onSubmit }) => {
+const FormRenderer = ({ config, onSubmit, loading }) => {
   const initialValues = useMemo(
     () =>
       config.fields.reduce((acc, field) => {
@@ -60,8 +61,27 @@ const FormRenderer = ({ config, onSubmit }) => {
               </div>
             )
           )}
-          <Button className={styles.submitBtn} type="submit">
-            Submit
+          <Button className={styles.submitBtn} type="submit" disabled={loading}>
+            <span style={{ visibility: loading ? "hidden" : "visible" }}>
+              Search
+            </span>
+            {loading && (
+              <div
+                className={styles.loader}
+                style={{
+                  position: "absolute",
+                  top: 10,
+                  left: "calc(50% - 10px)",
+                }}
+              >
+                <RingLoader
+                  size={20}
+                  color={getComputedStyle(
+                    document.documentElement
+                  ).getPropertyValue("--color-text-white")}
+                />
+              </div>
+            )}
           </Button>
         </Form>
       )}
