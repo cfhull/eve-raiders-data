@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/eve-raiders-data/static/css/main.2c7abca6.chunk.css",
-    "main.js": "/eve-raiders-data/static/js/main.22d07123.chunk.js",
-    "main.js.map": "/eve-raiders-data/static/js/main.22d07123.chunk.js.map",
+    "main.js": "/eve-raiders-data/static/js/main.e8b50daa.chunk.js",
+    "main.js.map": "/eve-raiders-data/static/js/main.e8b50daa.chunk.js.map",
     "runtime-main.js": "/eve-raiders-data/static/js/runtime-main.ac04dce6.js",
     "runtime-main.js.map": "/eve-raiders-data/static/js/runtime-main.ac04dce6.js.map",
     "static/js/2.da3ad480.chunk.js": "/eve-raiders-data/static/js/2.da3ad480.chunk.js",
     "static/js/2.da3ad480.chunk.js.map": "/eve-raiders-data/static/js/2.da3ad480.chunk.js.map",
     "index.html": "/eve-raiders-data/index.html",
-    "precache-manifest.ddfe72459904ee9cec6c758d7d657fc2.js": "/eve-raiders-data/precache-manifest.ddfe72459904ee9cec6c758d7d657fc2.js",
+    "precache-manifest.abe9c409944a90b2c4096245389b0538.js": "/eve-raiders-data/precache-manifest.abe9c409944a90b2c4096245389b0538.js",
     "service-worker.js": "/eve-raiders-data/service-worker.js",
     "static/css/main.2c7abca6.chunk.css.map": "/eve-raiders-data/static/css/main.2c7abca6.chunk.css.map",
     "static/js/2.da3ad480.chunk.js.LICENSE.txt": "/eve-raiders-data/static/js/2.da3ad480.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.ac04dce6.js",
     "static/js/2.da3ad480.chunk.js",
     "static/css/main.2c7abca6.chunk.css",
-    "static/js/main.22d07123.chunk.js"
+    "static/js/main.e8b50daa.chunk.js"
   ]
 }
