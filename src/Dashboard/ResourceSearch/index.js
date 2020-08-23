@@ -69,9 +69,14 @@ const ResourceSearch = () => {
     data: filtersTypesData,
   } = useQuery("filters", getFilters);
 
-  const { regions, richness, types } = useMemo(
+  const { regions = [], richness = [], types = [] } = useMemo(
     () => (filtersTypesData ? filtersTypesData.data : []),
     [filtersTypesData]
+  );
+
+  const resourceTypeOptions = useMemo(
+    () => types.map((type) => type.replace(/([A-Z])/g, " $1").trim()),
+    [types]
   );
 
   if (filtersLoading) return "Loading...";
@@ -87,7 +92,7 @@ const ResourceSearch = () => {
         label: "Resource Type",
         placeholder: "resource type",
         type: "combobox",
-        items: types,
+        items: resourceTypeOptions,
         className: styles.resourceType,
       },
       {
