@@ -133,7 +133,7 @@ const PlanetSearch = () => {
       {
         name: "system",
         label: "System",
-        placeholder: "Select a system",
+        placeholder: "Enter a system",
         // items: regions,
         // type: "combobox",
         // itemToString: (item) => item?.name ?? "",
@@ -142,7 +142,7 @@ const PlanetSearch = () => {
       {
         name: "planetName",
         label: "Planet Name",
-        placeholder: "Select a planet name",
+        placeholder: "Enter a planet name",
         // items: regions,
         // type: "combobox",
         // itemToString: (item) => item?.name ?? "",
