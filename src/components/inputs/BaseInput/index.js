@@ -27,6 +27,7 @@ const BaseInput = React.forwardRef(
         ref={ref}
         className={classNames(className, styles.inputWrapper, {
           [styles.active]: hasFocus || active,
+          [styles.hasError]: error,
         })}
         onClick={() => {
           childRef.current.focus();
@@ -38,7 +39,7 @@ const BaseInput = React.forwardRef(
         </label>
         {children(childRef)}
         {error && (
-          <div className={styles.error}>
+          <div className={styles.errorMsg}>
             <MdErrorOutline /> {error}
           </div>
         )}
