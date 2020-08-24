@@ -1,7 +1,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  max-width: 630px;
+  max-width: 672px;
   margin: 0 auto;
   align-items: center;
 
@@ -12,20 +12,13 @@
   }
 
   .submitBtn {
-    margin: 20px 5px 0;
+    margin: 20px 12px 0;
     min-width: 100px;
     align-self: flex-end;
   }
 }
 
 .field {
-  margin: 5px;
+  margin: 12px;
   width: 200px;
-}
-
-.error {
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-  color: var(--color-red-lighter);
 }

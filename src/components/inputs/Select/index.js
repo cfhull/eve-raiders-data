@@ -13,6 +13,7 @@ const Select = ({
   placeholder,
   value,
   onChange,
+  error,
   itemToString = (item) => item,
 }) => {
   const {
@@ -38,6 +39,7 @@ const Select = ({
         active={isOpen}
         label={label}
         name={name}
+        error={error}
         {...getToggleButtonProps()}
       >
         {(ref) => (

@@ -13,6 +13,7 @@ const ComboBox = ({
   placeholder,
   value,
   onChange,
+  error,
   itemToString = (item) => item,
 }) => {
   const [inputItems, setInputItems] = useState(items);
@@ -43,7 +44,7 @@ const ComboBox = ({
 
   return (
     <div className={className}>
-      <BaseInput label={label} name={name}>
+      <BaseInput label={label} name={name} error={error}>
         {(ref) => (
           <div className={styles.combobox} {...getComboboxProps()}>
             <input

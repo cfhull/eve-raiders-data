@@ -5,7 +5,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import Input from "../../components/inputs/Input";
 import ComboBox from "../inputs/ComboBox";
 import Select from "../inputs/Select";
-import { MdErrorOutline } from "react-icons/md";
 import RingLoader from "@bit/davidhu2000.react-spinners.ring-loader";
 import styles from "./FormRenderer.module.scss";
 
@@ -31,7 +30,7 @@ const FormRenderer = ({ config, onSubmit, loading }) => {
       initialValues={initialValues}
       onSubmit={onSubmit}
     >
-      {({ setFieldValue }) => (
+      {({ setFieldValue, errors, touched }) => (
         <Form className={classNames(styles.form, config.className)}>
           <div className={styles.fields}>
             {config.fields.map(({ className, name, type, ...inputProps }) => (
@@ -46,17 +45,11 @@ const FormRenderer = ({ config, onSubmit, loading }) => {
                         {...field}
                         {...inputProps}
                         onChange={(value) => setFieldValue(name, value)}
+                        error={touched[name] && errors[name]}
                       />
                     );
                   }}
                 </Field>
-                <ErrorMessage name={name}>
-                  {(msg) => (
-                    <div className={styles.error}>
-                      <MdErrorOutline /> {msg}
-                    </div>
-                  )}
-                </ErrorMessage>
               </div>
             ))}
           </div>

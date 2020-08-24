@@ -25,7 +25,7 @@
   }
 
   @media screen and (max-width: 645px) {
-    .resourceSearchForm {
+    .fields {
       flex-direction: column;
       width: calc(100% - 10px);
       padding: 0 10px;
@@ -34,7 +34,7 @@
 
     .field,
     .submitBtn {
-      width: calc(100% - 10px);
+      width: calc(100% - 24px);
     }
   }
 }

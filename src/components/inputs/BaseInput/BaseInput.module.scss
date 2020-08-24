@@ -21,3 +21,12 @@
   cursor: inherit;
   font-size: 10px;
 }
+
+.error {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: var(--color-red-lighter);
+  position: absolute;
+  bottom: -20px;
+}
