@@ -96,7 +96,7 @@ const PlanetSearch = () => {
     data: filtersTypesData,
   } = useQuery("filters", getFilters);
 
-  const { regions = [] } = useMemo(
+  const { regions = [], planetTypes = [], constellations = [] } = useMemo(
     () => (filtersTypesData ? filtersTypesData.data : []),
     [filtersTypesData]
   );
@@ -124,9 +124,9 @@ const PlanetSearch = () => {
         name: "constellation",
         label: "Constellation",
         placeholder: "Select a constellation",
-        // items: regions,
-        // type: "combobox",
-        // itemToString: (item) => item?.name ?? "",
+        items: constellations,
+        type: "combobox",
+        itemToString: (item) => item?.name ?? "",
         className: styles.field,
       },
 
@@ -152,9 +152,8 @@ const PlanetSearch = () => {
         name: "planetType",
         label: "Planet Type",
         placeholder: "Select a planet type",
-        // items: regions,
-        // type: "combobox",
-        // itemToString: (item) => item?.name ?? "",
+        items: planetTypes,
+        type: "select",
         className: styles.field,
       },
     ],

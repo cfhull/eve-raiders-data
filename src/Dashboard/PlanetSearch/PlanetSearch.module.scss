@@ -21,15 +21,15 @@
     display: flex;
     overflow: hidden;
     z-index: 1;
-    margin-top: 20px;
+    margin: 20px 0;
   }
 
-  @media screen and (max-width: 645px) {
+  @media screen and (max-width: 672px) {
     .fields {
       flex-direction: column;
       width: calc(100% - 10px);
       padding: 0 10px;
-      margin: 5px 0;
+      margin-top: 20px;
     }
 
     .field,
